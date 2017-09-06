@@ -30,6 +30,7 @@ The other placeholders are specified separately.
   [ tcp: <tcp_probe> ]
   [ dns: <dns_probe> ]
   [ icmp: <icmp_probe> ]
+  [ s3: <s3_probe> ]
 
 ```
 
@@ -162,6 +163,33 @@ validate_additional_rrs:
 
 # The preferred IP protocol of the ICMP probe (ip4, ip6).
 [ preferred_ip_protocol: <string> | default = "ip6" ]
+
+```
+
+### <s3_probe>
+
+```yml
+
+# S3 file names, those files are prefixed with process PID.
+[ file_name: <string> | default = empty ]
+
+# S3 access key
+[ access_key_id: <string> | default = empty ]
+
+# S3 secret key
+[ secret_access_key: <string> | default = empty ]
+
+# Use crypto or not
+[ use_ssl: <boolean> | default = empty ]
+
+# Attr signature_version accepts only "v2" or "v4"
+[ signature_version: <string> | default = empty ]
+
+# Time waited between the set OP and the get OP
+[ wait_after_set: <duration> | default = empty ]
+
+# File size array, each size will start an independant check run
+[ file_sizes: <string_array> | default = empty ]
 
 ```
 

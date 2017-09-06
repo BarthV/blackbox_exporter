@@ -51,9 +51,20 @@ type Module struct {
 	TCP     TCPProbe      `yaml:"tcp,omitempty"`
 	ICMP    ICMPProbe     `yaml:"icmp,omitempty"`
 	DNS     DNSProbe      `yaml:"dns,omitempty"`
+	S3      S3Probe       `yaml:"s3,omitempty"`
 
 	// Catches all undefined fields and must be empty after parsing.
 	XXX map[string]interface{} `yaml:",inline"`
+}
+
+type S3Probe struct {
+	FileName         string   `yaml:"file_name"`
+	AccessKeyID      string   `yaml:"access_key_id"`
+	SecretAccessKey  string   `yaml:"secret_access_key"`
+	UseSSL           bool     `yaml:"use_ssl"`
+	SignatureVersion string   `yaml:"signature_version"`
+	WaitAfterSet     string   `yaml:"wait_after_set"`
+	TestedFileSizes  []string `yaml:"file_sizes"`
 }
 
 type HTTPProbe struct {

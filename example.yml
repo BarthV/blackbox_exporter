@@ -80,3 +80,17 @@ modules:
       transport_protocol: "tcp" # defaults to "udp"
       preferred_ip_protocol: "ip4" #  defaults to "ip6"
       query_name: "www.prometheus.io"
+  s3_example:
+    prober: s3
+    timeout: 30s
+    s3:
+      file_name: "tested-file.bin" # file is prefixed with blackbox_exporter PID
+      access_key_id: "ABCDEFGHIJKLMNOPQRTU"
+      secret_access_key: "abcdefghijklmnopqrstuvwxyzabcbefghijklmn"
+      use_ssl: false
+      signature_version: "v4" # accepts "v2/v4"
+      wait_after_set: 500ms
+      file_sizes:
+        - 900B
+        - 50KiB
+        - 1MB

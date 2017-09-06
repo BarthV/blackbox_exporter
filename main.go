@@ -49,6 +49,7 @@ var (
 		"tcp":  prober.ProbeTCP,
 		"icmp": prober.ProbeICMP,
 		"dns":  prober.ProbeDNS,
+		"s3":   prober.ProbeS3,
 	}
 )
 
